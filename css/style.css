@@ -1,0 +1,20 @@
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #0c7b93;
+  --color-secondary: #00a9b8;
+  --color-light: #f4f9fb;
+  --color-dark: #073b4c;
+  --font-base: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-base);
+  background: var(--color-light);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
