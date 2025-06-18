@@ -49,3 +49,30 @@ if (cepInput) {
     }
   });
 }
+
+
+if (window.location.pathname.endsWith("necessidades.html")) {
+
+  const searchInput = document.getElementById("searchInput");
+  const filterType = document.getElementById("filterType");
+
+  const applyFilters = () => {
+    const term = searchInput.value.toLowerCase();
+    const type = filterType.value;
+
+    const filtered = needs.filter((need) => {
+      const matchesTerm =
+        need.title.toLowerCase().includes(term) ||
+        need.description.toLowerCase().includes(term);
+      const matchesType = type ? need.type === type : true;
+      return matchesTerm && matchesType;
+    });
+
+    renderNeeds(filtered);
+  };
+
+  renderNeeds();
+
+  searchInput.addEventListener("input", applyFilters);
+  filterType.addEventListener("change", applyFilters);
+}
