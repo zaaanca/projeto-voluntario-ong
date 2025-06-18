@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Necessidades</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Necessidades Cadastradas</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="cadastro.html">Cadastrar</a>
+      <a href="necessidades.html">Visualizar</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="filtros">
+      <input type="text" id="pesquisa" placeholder="Buscar por título ou descrição" />
+      <select id="filtroTipoAjuda">
+        <option value="">Todos os Tipos</option>
+        <option value="Educação">Educação</option>
+        <option value="Saúde">Saúde</option>
+        <option value="Meio Ambiente">Meio Ambiente</option>
+        <option value="Doação de Alimentos">Doação de Alimentos</option>
+        <option value="Doação de Roupas">Doação de Roupas</option>
+        <option value="Outros">Outros</option>
+      </select>
+    </section>
+
+    <section id="lista-necessidades" class="grid-cards">
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
