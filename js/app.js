@@ -27,3 +27,25 @@ if (form) {
     form.reset();
   });
 }
+
+const cepInput = document.getElementById("cep");
+
+if (cepInput) {
+  cepInput.addEventListener("blur", async () => {
+    const rawCep = cepInput.value.replace(/\D/g, "");
+    if (rawCep.length !== 8) return;
+
+    try {
+      const response = await fetch(`https://viacep.com.br/ws/${rawCep}/json/`);
+      const data = await response.json();
+      if (data.erro) return;
+
+      form.street.value = data.logradouro;
+      form.neighborhood.value = data.bairro;
+      form.city.value = data.localidade;
+      form.state.value = data.uf;
+    } catch (err) {
+      console.error("Erro ao consultar ViaCEP:", err);
+    }
+  });
+}
