@@ -1,6 +1,3 @@
-# projeto-voluntario-ong
-Prova Leonardo - ADS UniCesumar Londrina
-
 # Plataforma Voluntária
 
 Acesse o projeto online: [https://zaaanca.github.io/projeto-voluntario-ong/](https://zaaanca.github.io/projeto-voluntario-ong/)
