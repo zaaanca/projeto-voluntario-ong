@@ -50,9 +50,7 @@ if (cepInput) {
   });
 }
 
-
 if (window.location.pathname.endsWith("necessidades.html")) {
-
   const searchInput = document.getElementById("searchInput");
   const filterType = document.getElementById("filterType");
 
@@ -70,6 +68,33 @@ if (window.location.pathname.endsWith("necessidades.html")) {
 
     renderNeeds(filtered);
   };
+
+  function renderNeeds(list = needs) {
+    const needsList = document.getElementById("needsList");
+    if (!needsList) return;
+    if (!list.length) {
+      needsList.innerHTML = '<p class="empty">Nenhuma necessidade cadastrada.</p>';
+      return;
+    }
+    needsList.innerHTML = list
+      .map(
+        (need) => `
+      <article class="need-card">
+        <h2>${need.title}</h2>
+        <p><strong>Instituição:</strong> ${need.institution}</p>
+        <p><strong>Tipo:</strong> ${need.type}</p>
+        <p>${need.description}</p>
+        <p><strong>Local:</strong> ${
+          need.street ? need.street + ", " : ""
+        }${need.neighborhood ? need.neighborhood + ", " : ""}${
+          need.city
+        } - ${need.state}</p>
+        <p><strong>Contato:</strong> ${need.contact}</p>
+      </article>
+    `
+      )
+      .join("");
+  }
 
   renderNeeds();
 
