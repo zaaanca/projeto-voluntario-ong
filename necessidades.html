@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Necessidades | Plataforma Voluntária</title>
   <link rel="stylesheet" href="css/style.css" />
+  <!-- Inclui o CSS principal do projeto -->
 </head>
 <body>
   <header class="header">
     <nav class="nav">
       <a href="index.html" class="logo">Voluntária</a>
+      <!-- Navegação principal: links para as páginas do site -->
       <ul class="nav__links">
         <li><a href="index.html">Início</a></li>
-        <li><a href="cadastrar.html">Nova Necessidade</a></li>
+        <li><a href="cadastrar.html">Cadastrar Necessidade</a></li>
         <li><a href="necessidades.html" class="active">Ver Necessidades</a></li>
       </ul>
     </nav>
@@ -21,6 +23,7 @@
 <main class="needs-page">
   <h1>Necessidades Cadastradas</h1>
 
+  <!-- Filtros de busca e tipo -->
   <div class="filters">
     <input
       type="search"
@@ -38,6 +41,7 @@
     </select>
   </div>
 
+  <!-- Lista de necessidades será preenchida via JS -->
   <section id="needsList" class="needs-grid"></section>
 </main>
 
@@ -45,6 +49,7 @@
     <small>&copy; 2025 Plataforma Voluntária</small>
   </footer>
 
+  <!-- Script principal do projeto -->
   <script src="js/app.js"></script>
 </body>
 </html>

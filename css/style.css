@@ -1,3 +1,6 @@
+/*
+  Reset de margens, paddings e box-sizing para garantir consistência entre navegadores
+*/
 *{
   margin: 0;
   padding: 0;
@@ -5,6 +8,7 @@
 }
 
 :root {
+  /* Cores e fonte base do tema */
   --color-primary: #0c7b93;
   --color-secondary: #00a9b8;
   --color-light: #f4f9fb;
@@ -25,7 +29,7 @@ body {
 .header {
   background: var(--color-primary);
   padding: 0.5rem 1rem;
-  position: sticky;
+  position: sticky; /* Fixa o header no topo ao rolar */
   top: 0;
   z-index: 10;
 }
@@ -211,7 +215,7 @@ form button.btn {
   transition: transform 0.2s;
 }
 
-/* Grid de necessidades */
+/* Grid de necessidades: layout responsivo para cards */
 .needs-page {
   max-width: 1200px;
   margin: 4rem auto;
@@ -278,7 +282,7 @@ form button.btn {
   font-size: 0.95rem;
 }
 
-/* FOOTER FIXO NO FINAL */
+/* Garante que o footer fique sempre no final da tela */
 html, body {
   height: 100%;
 }
@@ -297,7 +301,7 @@ main, .form-container, .needs-page, .home {
   width: 100%;
 }
 
-/* RESPONSIVO */
+/* Responsividade para tablets e celulares */
 @media (max-width: 900px) {
   .nav {
     flex-direction: column;

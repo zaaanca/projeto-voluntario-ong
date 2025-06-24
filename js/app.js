@@ -1,11 +1,15 @@
+// Carrega as necessidades do localStorage ou inicia um array vazio
 const needs = JSON.parse(localStorage.getItem("needs") || "[]");
 
+// Seleciona o formulário de cadastro, se existir na página
 const form = document.getElementById("needForm");
 
 if (form) {
+  // Adiciona evento de submit ao formulário de cadastro
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    // Cria um novo objeto de necessidade com os dados do formulário
     const newNeed = {
       institution: form.institution.value.trim(),
       type: form.type.value,
@@ -20,6 +24,7 @@ if (form) {
       createdAt: new Date().toISOString(),
     };
 
+    // Adiciona a nova necessidade ao array e salva no localStorage
     needs.push(newNeed);
     localStorage.setItem("needs", JSON.stringify(needs));
 
@@ -28,6 +33,7 @@ if (form) {
   });
 }
 
+// Busca automática de endereço pelo CEP usando a API ViaCEP
 const cepInput = document.getElementById("cep");
 
 if (cepInput) {
@@ -40,6 +46,7 @@ if (cepInput) {
       const data = await response.json();
       if (data.erro) return;
 
+      // Preenche os campos de endereço automaticamente
       form.street.value = data.logradouro;
       form.neighborhood.value = data.bairro;
       form.city.value = data.localidade;
@@ -50,10 +57,12 @@ if (cepInput) {
   });
 }
 
+// Lógica de exibição e filtro das necessidades na página necessidades.html
 if (window.location.pathname.endsWith("necessidades.html")) {
   const searchInput = document.getElementById("searchInput");
   const filterType = document.getElementById("filterType");
 
+  // Aplica filtros de busca e tipo
   const applyFilters = () => {
     const term = searchInput.value.toLowerCase();
     const type = filterType.value;
@@ -69,6 +78,7 @@ if (window.location.pathname.endsWith("necessidades.html")) {
     renderNeeds(filtered);
   };
 
+  // Renderiza a lista de necessidades na tela
   function renderNeeds(list = needs) {
     const needsList = document.getElementById("needsList");
     if (!needsList) return;
@@ -96,8 +106,8 @@ if (window.location.pathname.endsWith("necessidades.html")) {
       .join("");
   }
 
+  // Inicializa a lista e eventos de filtro
   renderNeeds();
-
   searchInput.addEventListener("input", applyFilters);
   filterType.addEventListener("change", applyFilters);
 }
